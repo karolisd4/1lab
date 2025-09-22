@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.content.ContextCompat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,13 +26,35 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        int[] colors = {
+                ContextCompat.getColor(this, R.color.red),
+                ContextCompat.getColor(this, R.color.green),
+                ContextCompat.getColor(this, R.color.blue),
+                ContextCompat.getColor(this, R.color.purple),
+                ContextCompat.getColor(this, R.color.yellow)
+        };
+
         Button textButton = findViewById(R.id.tekstoKnopke);
+        Button colorButton = findViewById(R.id.spalvosKnopke);
         TextView textView = findViewById(R.id.manoTekstas);
+
+        final int[] currentIndex = {0};
+        colorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setTextColor(colors[currentIndex[0]]);
+                currentIndex[0] = (currentIndex[0] + 1) % colors.length;
+            }
+        });
 
         textButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setVisibility(View.VISIBLE);
+                if (textView.getVisibility() == View.VISIBLE) {
+                    textView.setVisibility(View.GONE);
+                } else {
+                    textView.setVisibility(View.VISIBLE);
+                }
             }
         });
     }
