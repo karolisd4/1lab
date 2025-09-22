@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 colorIndex[0] = (colorIndex[0] + 1) % textColors.length;
             }
         });
-// Comment for revert
+
         final int[] bgIndex = {0};
         bgButton.setOnClickListener(new View.OnClickListener() {
             @Override
