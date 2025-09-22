@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Comment for revert
         final int[] bgIndex = {0};
         bgButton.setOnClickListener(new View.OnClickListener() {
             @Override
