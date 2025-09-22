@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 ContextCompat.getColor(this, R.color.purple)
         };
 
+        //Comment for revert
         int[] bgColors = {
                 ContextCompat.getColor(this, R.color.yellow),
                 ContextCompat.getColor(this, R.color.orange),
