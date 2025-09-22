@@ -26,24 +26,39 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        int[] colors = {
+        int[] textColors = {
                 ContextCompat.getColor(this, R.color.red),
                 ContextCompat.getColor(this, R.color.green),
                 ContextCompat.getColor(this, R.color.blue),
-                ContextCompat.getColor(this, R.color.purple),
-                ContextCompat.getColor(this, R.color.yellow)
+                ContextCompat.getColor(this, R.color.purple)
+        };
+
+        int[] bgColors = {
+                ContextCompat.getColor(this, R.color.yellow),
+                ContextCompat.getColor(this, R.color.orange),
+                ContextCompat.getColor(this, R.color.cyan)
         };
 
         Button textButton = findViewById(R.id.tekstoKnopke);
         Button colorButton = findViewById(R.id.spalvosKnopke);
+        Button bgButton = findViewById(R.id.fonoKnopke);
         TextView textView = findViewById(R.id.manoTekstas);
 
-        final int[] currentIndex = {0};
+        final int[] colorIndex = {0};
         colorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView.setTextColor(colors[currentIndex[0]]);
-                currentIndex[0] = (currentIndex[0] + 1) % colors.length;
+                textView.setTextColor(textColors[colorIndex[0]]);
+                colorIndex[0] = (colorIndex[0] + 1) % textColors.length;
+            }
+        });
+
+        final int[] bgIndex = {0};
+        bgButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.setBackgroundColor(bgColors[bgIndex[0]]);
+                bgIndex[0] = (bgIndex[0] + 1) % bgColors.length;
             }
         });
 
